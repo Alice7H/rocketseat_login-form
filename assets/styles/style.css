@@ -36,10 +36,10 @@ body {
   font-size: 16px;
   line-height: 150%;
   color: var(--text-base);
-  margin-bottom: 27px;
 }
 .description {
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 27px;
 }
 form{
   padding: 30px 20px;
@@ -47,6 +47,7 @@ form{
   flex-direction: column;
 }
 input {
+  background-color: transparent;
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 14px 37px;
