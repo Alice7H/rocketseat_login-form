@@ -14,13 +14,62 @@
   --primary-color: #FFC632;
   --secondary-color: #473404;
   --border: #868686;
+  --eye: #AFB6C2;
+  --icon: #AFB6C2;
+}
+.dark-green {
+  --text-base: #F4FFF7;
+  --text-secondary: #ABABAB;
+  --text-title: #FFF7DC;
+  --background: #1A1919;
+  --form-background: #212121;
+  --primary-color: #41A55B;
+  --secondary-color: #03310D;
+  --box-shadow: #7BC18E;
+  --eye: #B0B0B0;
+  --icon: #4F4F4F;
+}
+.white-beige {
+  --text-base: #574C3A;
+  --text-secondary: #725F40;
+  --text-title: #2E2312;
+  --background: #E4DBCD;
+  --form-background: #F1EADD;
+  --primary-color: #574C3A;
+  --secondary-color: #FFFFFF;
+  --box-shadow: #AD8F5D;
+  --eye: #725F40;
+  --icon: #BDB09A;
 }
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--background);
 }
+header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+#color {
+  height: 45px;
+}
+#color option:nth-child(1) {
+  background-color: #FFC632;
+}
+#color option:nth-child(2) {
+  background-color: #41A55B;
+}
+#color option:nth-child(3) {
+  background-color: #F1EADD;
+}
 .logo{
   padding: 40px 20px 0px;
+}
+.dark-green .logo{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7454%) hue-rotate(331deg) brightness(101%) contrast(107%);
+}
+.white-beige .logo{
+  filter: brightness(0) saturate(100%) invert(10%) sepia(76%) saturate(391%) hue-rotate(357deg) brightness(97%) contrast(92%);
 }
 .title {
   color: var(--text-title);
@@ -31,20 +80,30 @@ body {
 .title img {
   margin-right: 10px;
 }
+.dark-green .title img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7454%) hue-rotate(331deg) brightness(101%) contrast(107%);
+}
+.white-beige .title img {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(76%) saturate(391%) hue-rotate(357deg) brightness(97%) contrast(92%);
+}
 .description, label {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   color: var(--text-base);
 }
+.dark-green .description {
+  font-weight: 400;
+}
 .description {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 27px;
 }
-form{
+form {
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
 }
 input {
   background-color: transparent;
@@ -70,19 +129,42 @@ input:focus {
   background-repeat: no-repeat;
   background-position: 12px center;
 }
-#email {
-  background-image: url('../images/mail.svg');
+.control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-#email:focus {
-  background-image: url('../images/mail-focus.svg');
+svg {
+  position: absolute;
+  left: 12px;
+  bottom: 35px;
 }
-#password {
-  background-image: url('../images/lock.svg'), url('../images/eye.svg');
-  background-position: 12px center, calc(100% - 12px) center;
+.control .btn-password {
+  background: transparent;
+  position: absolute;
+  right: 12px;
+  bottom: 18px;
+  cursor: pointer;
 }
-#password:focus {
-  background-image: url('../images/lock-focus.svg'), url('../images/eye-focus.svg');
+.control .btn-password svg {
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
+.control svg path {
+  stroke: var(--icon);
+}
+.control:focus-within svg path {
+  stroke: var(--primary-color);
+}
+.control .btn-password svg path {
+  stroke: var(--eye);
+}
+.dark-green input:focus,
+.white-beige input:focus {
+  box-shadow: 0px 0px 0px 2px var(--box-shadow);
+} 
 .container {
   display: flex;
   justify-content: space-between;
